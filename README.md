@@ -17,7 +17,20 @@ https://ai.google.dev/gemini-api/docs/available-regions?hl=ru
 
 Интерфейс  
 
-[<img src="https://github.com/Devvver/gemini_csv_parser/blob/main/999.png" width="50%">](https://github.com/Devvver/gemini_csv_parser/blob/main/999.png)
+[<img src="https://github.com/Devvver/gemini_csv_parser/blob/main/999.png" width="50%">](https://github.com/Devvver/gemini_csv_parser/blob/main/999.png)  
+
+1) Загружаем файл csv ( в кодировке UTF-8)
+2) Пишем условие выполнения (prompt) для выполнения. Подерживаются заголовки из csv [[]], например
+Если размер [[Размер страницы ]] больше 100 кб тогда пишем статью по запросу [[h1]].
+Где [[Размер страницы ]] - столбцы которые есть в таблице и содержат данные.
+
+3) После вынолнения всех запросов результат сохранится в result.csv
+
+На практике Google не рекомендует делать запросы чаще 1 раза в секунду (хотя поддерживает 600 запросов в секунду), через прокси редко когда получается делать чаще.
+Тем не менее в случае проблем с количеством запросов добавьте задержку на 1 секунду.
+
+
+
 
 
 
