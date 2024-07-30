@@ -15,7 +15,8 @@ genai.configure(api_key="тут ваш ключ")
 https://ai.google.dev/gemini-api/docs/available-regions?hl=ru
 Парсинг тоже должен быть под прокси, иначе будете получать или 400 или 429 ошибку!
 
-Интерфейс
+Интерфейс  
+
 [<img src="https://github.com/Devvver/gemini_csv_parser/blob/main/999.png" width="50%">](https://github.com/Devvver/gemini_csv_parser/blob/main/999.png)
 
 
