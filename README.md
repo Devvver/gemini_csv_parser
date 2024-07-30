@@ -8,7 +8,7 @@ pip install pandas
 
 pip install -U google-generativeai  
 
-Нужно получить кей от API GEMINI , пример полчения в видео  https://www.youtube.com/watch?v=J8ksL3oqqUE
+Нужно получить кей от API GEMINI , пример получения в видео  https://www.youtube.com/watch?v=J8ksL3oqqUE
 и вставить в 
 genai.configure(api_key="тут ваш ключ")
 Важно - не все страны поддерживаются, используйте https://protonvpn.com . После подлючения смените страну которая подерживает Google API, список
