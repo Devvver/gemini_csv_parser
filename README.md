@@ -13,5 +13,7 @@ pip install -U google-generativeai
 genai.configure(api_key="тут ваш ключ")
 Важно - не все страны поддерживаются, используйте https://protonvpn.com . После подлючения смените страну которая подерживает Google API, список
 https://ai.google.dev/gemini-api/docs/available-regions?hl=ru
+Парсинг тоже должен быть под прокси, иначе будете получать или 400 или 429 ошибку!
+
 
 
