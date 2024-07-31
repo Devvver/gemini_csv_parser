@@ -20,7 +20,7 @@ https://ai.google.dev/gemini-api/docs/available-regions?hl=ru
 [<img src="https://github.com/Devvver/gemini_csv_parser/blob/main/999.png" width="50%">](https://github.com/Devvver/gemini_csv_parser/blob/main/999.png)  
 
 1) Загружаем файл csv ( в кодировке UTF-8)
-2) Пишем условие (prompt) для выполнения. Подерживаются заголовки из csv [[]], например
+2) Пишем условие (prompt) для выполнения. Поддерживаются заголовки из csv [[]], например
 "Если размер [[Размер страницы ]] больше 100 кб тогда пишем статью по запросу [[h1]]".
 Где [[Размер страницы ]] - столбцы которые есть в таблице и содержат данные.
 
