@@ -11,7 +11,7 @@ pip install -U google-generativeai
 Нужно получить кей от API GEMINI , пример получения в видео  https://www.youtube.com/watch?v=J8ksL3oqqUE
 и вставить в 
 genai.configure(api_key="тут ваш ключ")
-Важно - не все страны поддерживаются, используйте https://protonvpn.com . После подлючения смените страну которая подерживает Google API, список
+Важно - не все страны поддерживаются, используйте https://protonvpn.com . После подключения смените страну которая подерживает Google API, список
 https://ai.google.dev/gemini-api/docs/available-regions?hl=ru
 Парсинг тоже должен быть под прокси, иначе будете получать или 400 или 429 ошибку!
 
