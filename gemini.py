@@ -5,7 +5,7 @@ import re
 import os
 
 # Настройка API-ключа
-genai.configure(api_key="")
+genai.configure(api_key=st.secrets["api_key"])
 
 # Инициализация модели
 model = genai.GenerativeModel('models/gemini-pro')
