@@ -9,7 +9,7 @@ genai.configure(api_key=st.secrets["api_key"])
 
 # Инициализация модели
 model = genai.GenerativeModel('models/gemini-pro')
-# Возможен вызов других моделей, пример  model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+# Возможен вызов других моделей, пример: model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 st.title("Генерация контента с помощью Google Generative AI")
 st.write("Загрузите CSV файл и получите результаты.")
@@ -31,7 +31,6 @@ if uploaded_file is not None:
     memo_template = st.text_area("Введите шаблон prompt (для названий столбцов используйте [[]]):",
                                  "")
 
-
     clean_text = st.checkbox("Очистить ответ от лишних символов", value=True)
     st.write(f"Используется в том случае, если вы хотите получить результат в виде html кода.")
 
@@ -44,11 +43,9 @@ if uploaded_file is not None:
 
         return re.sub(r'\[\[(.*?)\]\]', replacer, template)
 
-
     def clean_response(response_text):
         """Удаляет лишние символы в начале и в конце строки."""
         return response_text.strip("`").strip("```html").strip("```")
-
 
     def gemini_get_data(text):
         try:
@@ -61,15 +58,12 @@ if uploaded_file is not None:
             st.error(f"Произошла ошибка: {str(e)}")
             return None
 
-
-
     if st.button("Запустить"):
         progress_bar = st.progress(0)
         table_placeholder = st.empty()
         status_text = st.empty()
 
         total_rows = len(df)
-
 
         for i, row in df.iterrows():
             # Подставляем значения из строки в шаблон Memo
@@ -78,7 +72,6 @@ if uploaded_file is not None:
             df.at[i, 'result'] = result
 
             # Обновление прогресса и таблицы
-
             progress_bar.progress((i + 1) / total_rows,
                                   text=f"Парсится {i + 1} строка из {total_rows}")
             table_placeholder.dataframe(df)
@@ -86,11 +79,22 @@ if uploaded_file is not None:
         # Завершение процесса и показ полной таблицы
         st.success("Процесс завершен!")
 
-        script_directory = os.path.dirname(os.path.abspath(__file__))
-        output_file_path = os.path.join(script_directory, "result.csv")
-
+        # Сохранение DataFrame в CSV
+        output_file_path = "result.csv"
         try:
             df.to_csv(output_file_path, index=False)
             st.write(f"Файл с результатами сохранен как {output_file_path}.")
+
+            # Чтение файла для скачивания
+            with open(output_file_path, "rb") as file:
+                file_bytes = file.read()
+
+            # Кнопка для скачивания файла
+            st.download_button(
+                label="Скачать результат",
+                data=file_bytes,
+                file_name="result.csv",
+                mime="text/csv"
+            )
         except Exception as e:
             st.error(f"Ошибка при сохранении файла: {str(e)}")
